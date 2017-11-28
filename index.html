@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+ <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+  <script>
+    var fetch = angular.module('myapp', []);
+
+    fetch.controller('homeCtrl', ['$scope', '$http', function ($scope, $http) {
+     $http({
+      method: 'get',
+      url: 'data.php'
+     }).then(function successCallback(response) {
+      $scope.house = response.data;
+     });
+}]);
+
+</script>
+
+ </head>
+ <body ng-app='myapp'>
+
+  <div ng-controller="homeCtrl">
+
+  <table >
+
+  <tr>
+    <th>ID</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Age</th>
+    <th>Pet Name</th>
+  </tr>
+
+  <tr ng-repeat="people in house">
+    <td>{{people.id}}</td>
+    <td>{{people.firstname}}</td>
+    <td>{{people.lastname}}</td>
+    <td>{{people.age}}</td>
+    <td>{{people.petname}}</td>
+  </tr>
+
+  </table>
+  </div>
+
+ </body>
+</html>
