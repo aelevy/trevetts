@@ -2,19 +2,7 @@
 <html>
  <head>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
-  <script>
-    var fetch = angular.module('myapp', []);
-
-    fetch.controller('homeCtrl', ['$scope', '$http', function ($scope, $http) {
-     $http({
-      method: 'get',
-      url: 'data.php'
-     }).then(function successCallback(response) {
-      $scope.house = response.data;
-     });
-}]);
-
-</script>
+  <script src="app.js"></script>
 
  </head>
  <body ng-app='myapp'>
@@ -40,6 +28,10 @@
   </tr>
 
   </table>
+  <input type="text" placeholder="First Name" ng-model="person.fname">
+  <input type="text" placeholder="Last Name" ng-model="person.lname">
+  <input type="text" placeholder="Age" ng-model="person.age">
+  <input type="text" placeholder="Pet Name" ng-model="person.pname">
   </div>
 
  </body>
